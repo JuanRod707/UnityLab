@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class Explosion : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         effectElapsed = EffectDuration;
+        pushables = new List<IPushable>();
     }
 
     void Update()
@@ -22,19 +24,14 @@ public class Explosion : MonoBehaviour
         }
     }
 
-    private List<IPushable> Pushables
-    {
-        get { return pushables ?? (pushables = new List<IPushable>()); }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (effectElapsed > 0)
         {
             var psh = other.GetComponent<IPushable>();
-            if (psh != null && !Pushables.Contains(psh))
+            if (psh != null && !pushables.Contains(psh))
             {
-                Pushables.Add(psh);
+                pushables.Add(psh);
                 psh.PushFrom(transform.position, PushForce);
             }
         }

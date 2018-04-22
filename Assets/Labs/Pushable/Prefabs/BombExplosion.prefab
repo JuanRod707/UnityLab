@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ef877f76a13cf468eb91b92046244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PushForce: 300
+  PushForce: 800
   EffectDuration: 0.2
 --- !u!135 &135884411832683866
 SphereCollider:

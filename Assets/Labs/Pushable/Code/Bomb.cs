@@ -22,4 +22,5 @@ public class Bomb : MonoBehaviour
         Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
 }
